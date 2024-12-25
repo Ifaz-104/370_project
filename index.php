@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h2>Welcome to our webpage</h2>
+    <form action="index.php" method="post">
+        <label>Are you a new user?</label><br>
+        <input type="radio" id="yes" name="new_user" value="yes">
+        <label for="yes">Yes</label><br>
+        <input type="radio" id="no" name="new_user" value="no">
+        <label for="no">No</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+<?php
+if (isset($_POST['new_user'])) {
+    $new_user = $_POST['new_user'];
+
+    if ($new_user === 'yes') {
+        header('Location: signup.php');
+        exit();
+    } elseif ($new_user === 'no') {
+        header('Location: login.php');
+        exit();
+    }
+} 
+
+
+?>
